@@ -14,7 +14,7 @@ fun main() {
         if (input.isBlank()) continue
 
         try {
-            val pipeline = Pipeline.parse(input, COMMAND_REGISTRY)
+            val pipeline = Pipeline.parse(input)
             pipeline.execute(output = System.out)
         } catch (e: Exception) {
             println("Error: ${e.message}")
