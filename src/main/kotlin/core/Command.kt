@@ -1,4 +1,4 @@
-package me.gabrielecabrini.core
+package it.gabrielecabrini.kosh.core
 
 interface Command {
 

@@ -1,6 +1,6 @@
-package me.gabrielecabrini.commands
+package it.gabrielecabrini.kosh.command
 
-import me.gabrielecabrini.core.BuiltinCommand
+import it.gabrielecabrini.kosh.core.BuiltinCommand
 
 class EchoCommand : BuiltinCommand() {
     override fun execute(args: List<String>, input: String, output: Appendable) {

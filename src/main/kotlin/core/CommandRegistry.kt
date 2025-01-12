@@ -1,6 +1,6 @@
-package me.gabrielecabrini.core
+package it.gabrielecabrini.kosh.core
 
-import me.gabrielecabrini.commands.*
+import it.gabrielecabrini.kosh.command.*
 
 object CommandRegistry {
     private val commands: MutableMap<String, Command> = mutableMapOf()

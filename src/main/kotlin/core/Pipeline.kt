@@ -1,6 +1,6 @@
-package me.gabrielecabrini.core
+package it.gabrielecabrini.kosh.core
 
-import me.gabrielecabrini.COMMAND_REGISTRY
+import it.gabrielecabrini.kosh.COMMAND_REGISTRY
 
 class Pipeline(private val commands: List<Pair<Command, List<String>>>) {
     companion object {

@@ -1,7 +1,7 @@
-package me.gabrielecabrini
+package it.gabrielecabrini.kosh
 
-import me.gabrielecabrini.core.CommandRegistry
-import me.gabrielecabrini.core.Pipeline
+import it.gabrielecabrini.kosh.core.CommandRegistry
+import it.gabrielecabrini.kosh.core.Pipeline
 
 val COMMAND_REGISTRY = CommandRegistry
 
