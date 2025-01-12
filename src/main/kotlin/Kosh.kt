@@ -1,5 +1,6 @@
 package it.gabrielecabrini.kosh
 
+import it.gabrielecabrini.kosh.completer.BuiltinCompleter
 import it.gabrielecabrini.kosh.core.CommandRegistry
 import it.gabrielecabrini.kosh.core.Pipeline
 import org.jline.reader.EndOfFileException
@@ -15,7 +16,10 @@ fun main() {
     println("Welcome to Kosh - The Kotlin Shell!")
 
     val terminal: Terminal = TerminalBuilder.builder().system(true).build()
-    val lineReader: LineReader = LineReaderBuilder.builder().terminal(terminal).build()
+    val lineReader: LineReader = LineReaderBuilder.builder()
+        .terminal(terminal)
+        .completer(BuiltinCompleter())
+        .build()
 
     while (true) {
         try {

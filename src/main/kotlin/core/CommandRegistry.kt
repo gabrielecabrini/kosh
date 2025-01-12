@@ -21,4 +21,6 @@ object CommandRegistry {
         return commands[name] ?: ExternalCommand(name)
     }
 
+    fun getRegisteredCommands(): Map<String, Command> = commands
+
 }
