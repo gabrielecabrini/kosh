@@ -19,6 +19,7 @@ fun main() {
 
     val terminal: Terminal = TerminalBuilder.builder().system(true).build()
     val lineReader: LineReader = LineReaderBuilder.builder()
+        .appName("kosh")
         .terminal(terminal)
         .completer(AggregateCompleter(BuiltinCompleter(), ExecutablesCompleter()))
         .build()
