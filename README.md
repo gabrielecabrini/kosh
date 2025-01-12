@@ -5,9 +5,14 @@ Kosh is a Kotlin-written interactive shell, supporting Linux, macOS and Windows.
 
 The only runtime dependency is **Java 21**, which can be omitted by building a native image of the jar with [GraalVM Native Image](https://www.graalvm.org/latest/reference-manual/native-image/)
 
+The development of this project is hosted on [GitHub](https://github.com/gabrielecabrini/kosh)
+
 ## BUILDING JAR
 
 To compile Kosh you need:
 - Java SDK 21
 
 after cloning the repo, use `./gradlew fatJar` which will build the jar in ``build/libs/kosh-X.Y.Z-standalone.jar``, executable with `java -jar kosh-X.Y.Z-standalone.jar`
+
+## CONTRIBUTING
+If you want to contribute feel free to open issues and PR's, as every contribution is appreciated
