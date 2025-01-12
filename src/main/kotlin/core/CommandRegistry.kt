@@ -10,6 +10,7 @@ object CommandRegistry {
         register("cd", CdCommand())
         register("pwd", PwdCommand())
         register("type", TypeCommand())
+        register("exit", ExitCommand())
     }
 
     fun register(name: String, command: Command) {
