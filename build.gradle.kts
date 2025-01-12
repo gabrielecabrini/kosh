@@ -10,8 +10,8 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jline:jline-terminal:3.22.0")
-    implementation("org.jline:jline-reader:3.22.0")
+    implementation("org.jline:jline-terminal:3.26.0")
+    implementation("org.jline:jline-reader:3.26.0")
     testImplementation(kotlin("test"))
 }
 
