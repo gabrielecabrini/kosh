@@ -5,6 +5,10 @@ import java.io.File
 
 class CdCommand : BuiltinCommand() {
     override fun execute(args: List<String>, input: String, output: Appendable) {
+        if (args.isEmpty()) {
+            changeWorkingDirectory(System.getProperty("user.home"))
+            return
+        }
         val target = File(currentDirectory, args[0]).canonicalFile
         if (target.exists() && target.isDirectory) {
             changeWorkingDirectory(target.path)
