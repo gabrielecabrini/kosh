@@ -8,19 +8,18 @@ class ExternalCommand(private val commandName: String) : Command {
         try {
             val processBuilder = ProcessBuilder(commandName, *args.toTypedArray())
             processBuilder.directory(File(System.getProperty("user.dir")))
-            processBuilder.redirectErrorStream(true)
+            processBuilder.redirectError(ProcessBuilder.Redirect.INHERIT)
+            processBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT)
+            processBuilder.redirectInput(ProcessBuilder.Redirect.INHERIT)
 
             val process = processBuilder.start()
 
+            // not interactive program and requires initial input
             if (input.isNotEmpty()) {
                 process.outputStream.bufferedWriter().use { writer ->
                     writer.write(input)
                     writer.flush()
                 }
-            }
-
-            process.inputStream.bufferedReader().useLines { lines ->
-                lines.forEach { output.appendLine(it) }
             }
 
             process.waitFor()
