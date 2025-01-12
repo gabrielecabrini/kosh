@@ -17,7 +17,7 @@ fun main() {
             val pipeline = Pipeline.parse(input)
             pipeline.execute(output = System.out)
         } catch (e: Exception) {
-            println("Error: ${e.message}")
+            println("${e.message}")
         }
 
     }
