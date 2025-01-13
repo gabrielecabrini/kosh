@@ -29,9 +29,7 @@ class ExecutablesCompleter : Completer {
     }
 
     override fun complete(reader: LineReader, line: ParsedLine, candidates: MutableList<Candidate>) {
-        if (line.wordIndex() != 0) {
-            return;
-        }
+        if (line.wordIndex() != 0) return
         val buffer = line.word()
         val completions = executables.filter { it.startsWith(buffer) }
         completions.forEach { executable ->
