@@ -1,6 +1,6 @@
 package it.gabrielecabrini.kosh.command
 
-import it.gabrielecabrini.kosh.core.Command
+import it.gabrielecabrini.kosh.core.registry.Command
 import java.io.File
 
 class ExternalCommand(private val commandName: String) : Command {

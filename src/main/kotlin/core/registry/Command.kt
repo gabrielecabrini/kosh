@@ -1,4 +1,4 @@
-package it.gabrielecabrini.kosh.core
+package it.gabrielecabrini.kosh.core.registry
 
 interface Command {
 

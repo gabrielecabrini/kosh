@@ -1,6 +1,6 @@
 package it.gabrielecabrini.kosh.command
 
-import it.gabrielecabrini.kosh.core.BuiltinCommand
+import it.gabrielecabrini.kosh.core.registry.BuiltinCommand
 import kotlin.system.exitProcess
 
 class ExitCommand : BuiltinCommand() {

@@ -1,7 +1,7 @@
 package it.gabrielecabrini.kosh.command
 
 import it.gabrielecabrini.kosh.COMMAND_REGISTRY
-import it.gabrielecabrini.kosh.core.BuiltinCommand
+import it.gabrielecabrini.kosh.core.registry.BuiltinCommand
 import java.nio.file.Files
 import java.nio.file.Path
 import kotlin.io.path.name

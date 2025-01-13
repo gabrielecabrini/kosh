@@ -2,8 +2,8 @@ package it.gabrielecabrini.kosh
 
 import it.gabrielecabrini.kosh.completer.BuiltinCompleter
 import it.gabrielecabrini.kosh.completer.ExecutablesCompleter
-import it.gabrielecabrini.kosh.core.CommandRegistry
-import it.gabrielecabrini.kosh.core.Pipeline
+import it.gabrielecabrini.kosh.core.CommandLineHandler
+import it.gabrielecabrini.kosh.core.registry.CommandRegistry
 import org.jline.reader.EndOfFileException
 import org.jline.reader.LineReader
 import org.jline.reader.LineReaderBuilder
@@ -24,18 +24,12 @@ fun main() {
         .completer(AggregateCompleter(BuiltinCompleter(), ExecutablesCompleter()))
         .build()
 
+    val commandLineHandler = CommandLineHandler(System.out)
+
     while (true) {
         try {
             val input = lineReader.readLine("$ ").trim()
-            if (input.isBlank()) continue
-
-            try {
-                val pipeline = Pipeline.parse(input)
-                pipeline.execute(output = System.out)
-            } catch (e: Exception) {
-                println("${e.message}")
-            }
-
+            commandLineHandler.handleInput(input)
         } catch (e: UserInterruptException) {
             println("^C")
         } catch (e: EndOfFileException) {
