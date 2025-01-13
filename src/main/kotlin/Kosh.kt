@@ -14,7 +14,7 @@ import org.jline.terminal.TerminalBuilder
 import java.net.InetAddress
 
 fun main(args: Array<String>) {
-    println("Welcome to Kosh - The Kotlin Shell!")
+    println("Welcome to Kosh (v${BuildConfig.APP_VERSION}) - The Kotlin Shell!")
 
     val hostname = InetAddress.getLocalHost().hostName
     val terminal: Terminal = TerminalBuilder.builder()

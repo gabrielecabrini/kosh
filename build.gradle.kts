@@ -1,6 +1,7 @@
 plugins {
     application
     kotlin("jvm") version "2.1.0"
+    id("com.github.gmazzo.buildconfig") version "5.5.1"
 }
 
 group = "it.gabrielecabrini"
@@ -8,6 +9,12 @@ version = "0.1.0"
 
 application {
     mainClass = "it.gabrielecabrini.kosh.KoshKt"
+}
+
+buildConfig {
+    buildConfigField("APP_VERSION", provider { "${project.version}" })
+
+    useKotlinOutput()
 }
 
 repositories {
