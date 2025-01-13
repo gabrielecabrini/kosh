@@ -8,6 +8,9 @@ import org.jline.reader.ParsedLine
 
 class BuiltinCompleter : Completer {
     override fun complete(reader: LineReader, line: ParsedLine, candidates: MutableList<Candidate>) {
+        if (line.wordIndex() != 0) {
+            return;
+        }
         val buffer = line.word()
         val completions = COMMAND_REGISTRY.getRegisteredCommands().keys.filter { it.startsWith(buffer) }
         completions.forEach { command ->
