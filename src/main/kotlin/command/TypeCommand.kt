@@ -2,6 +2,7 @@ package it.gabrielecabrini.kosh.command
 
 import it.gabrielecabrini.kosh.core.registry.BuiltinCommand
 import it.gabrielecabrini.kosh.core.registry.CommandRegistry
+import java.io.File
 import java.nio.file.Files
 import java.nio.file.Path
 import kotlin.io.path.name
@@ -20,7 +21,7 @@ class TypeCommand : BuiltinCommand() {
 
         System
             .getenv("PATH")
-            .split(":")
+            .split(File.pathSeparator)
             .stream()
             .map { Path.of(it) }
             .filter { Files.exists(it) }
