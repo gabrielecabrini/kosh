@@ -1,7 +1,7 @@
 package it.gabrielecabrini.kosh.command
 
-import it.gabrielecabrini.kosh.COMMAND_REGISTRY
 import it.gabrielecabrini.kosh.core.registry.BuiltinCommand
+import it.gabrielecabrini.kosh.core.registry.CommandRegistry
 import java.nio.file.Files
 import java.nio.file.Path
 import kotlin.io.path.name
@@ -13,7 +13,7 @@ class TypeCommand : BuiltinCommand() {
         }
 
         val target = args[0]
-        if (COMMAND_REGISTRY.getCommand(target) is BuiltinCommand) {
+        if (CommandRegistry.getCommand(target) is BuiltinCommand) {
             output.appendLine("$target is a builtin")
             return
         }

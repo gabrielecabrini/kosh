@@ -3,7 +3,6 @@ package it.gabrielecabrini.kosh
 import it.gabrielecabrini.kosh.completer.BuiltinCompleter
 import it.gabrielecabrini.kosh.completer.ExecutablesCompleter
 import it.gabrielecabrini.kosh.core.CommandLineHandler
-import it.gabrielecabrini.kosh.core.registry.CommandRegistry
 import org.jline.builtins.Completers.FileNameCompleter
 import org.jline.reader.EndOfFileException
 import org.jline.reader.LineReader
@@ -12,13 +11,16 @@ import org.jline.reader.UserInterruptException
 import org.jline.reader.impl.completer.AggregateCompleter
 import org.jline.terminal.Terminal
 import org.jline.terminal.TerminalBuilder
+import java.net.InetAddress
 
-val COMMAND_REGISTRY = CommandRegistry
-
-fun main() {
+fun main(args: Array<String>) {
     println("Welcome to Kosh - The Kotlin Shell!")
 
-    val terminal: Terminal = TerminalBuilder.builder().system(true).build()
+    val hostname = InetAddress.getLocalHost().hostName
+    val terminal: Terminal = TerminalBuilder.builder()
+        .name("kosh")
+        .system(true)
+        .build()
     val lineReader: LineReader = LineReaderBuilder.builder()
         .appName("kosh")
         .terminal(terminal)
@@ -28,8 +30,9 @@ fun main() {
     val commandLineHandler = CommandLineHandler(System.out)
 
     while (true) {
+        val username = System.getProperty("user.name")
         try {
-            val input = lineReader.readLine("$ ").trim()
+            val input = lineReader.readLine("$username@$hostname $ ").trim()
             commandLineHandler.handleInput(input)
         } catch (e: UserInterruptException) {
             println("^C")

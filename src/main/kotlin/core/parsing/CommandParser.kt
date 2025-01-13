@@ -1,6 +1,6 @@
 package it.gabrielecabrini.kosh.core.parsing
 
-import it.gabrielecabrini.kosh.COMMAND_REGISTRY
+import it.gabrielecabrini.kosh.core.registry.CommandRegistry
 
 object CommandParser {
 
@@ -53,7 +53,7 @@ object CommandParser {
         }
 
         return ParsedCommand(
-            command = COMMAND_REGISTRY.getCommand(name),
+            command = CommandRegistry.getCommand(name),
             args = args,
             inputFile = stdinRedirect,
             outputFile = stdoutRedirect,
