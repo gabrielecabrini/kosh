@@ -4,6 +4,7 @@ import it.gabrielecabrini.kosh.completer.BuiltinCompleter
 import it.gabrielecabrini.kosh.completer.ExecutablesCompleter
 import it.gabrielecabrini.kosh.core.CommandLineHandler
 import it.gabrielecabrini.kosh.core.registry.CommandRegistry
+import org.jline.builtins.Completers.FileNameCompleter
 import org.jline.reader.EndOfFileException
 import org.jline.reader.LineReader
 import org.jline.reader.LineReaderBuilder
@@ -21,7 +22,7 @@ fun main() {
     val lineReader: LineReader = LineReaderBuilder.builder()
         .appName("kosh")
         .terminal(terminal)
-        .completer(AggregateCompleter(BuiltinCompleter(), ExecutablesCompleter()))
+        .completer(AggregateCompleter(BuiltinCompleter(), ExecutablesCompleter(), FileNameCompleter()))
         .build()
 
     val commandLineHandler = CommandLineHandler(System.out)
